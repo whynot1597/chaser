@@ -92,11 +92,11 @@ function updateScene() {
 }
 
 function endGame() {
+  backgroundSong.pause();
+  backgroundSong.currentTime = 0;
   console.log("GAME OVER");
   window.clearInterval(addEnemyInterval);
   window.clearInterval(addHealthInterval);
-  backgroundSong.pause();
-  backgroundSong.currentTime = 0;
 }
 
 function drawScene() {
