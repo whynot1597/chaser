@@ -1,5 +1,5 @@
 const canvas = document.querySelector("canvas");
-const sound = document.getElementById("audio");
+const backgroundSong = document.getElementById("backgroundSong");
 const ctx = canvas.getContext("2d");
 const progressBar = document.querySelector("progress");
 let enemies = [];
@@ -95,8 +95,8 @@ function endGame() {
   console.log("GAME OVER");
   window.clearInterval(addEnemyInterval);
   window.clearInterval(addHealthInterval);
-  sound.pause();
-  sound.currentTime = 0;
+  backgroundSong.pause();
+  backgroundSong.currentTime = 0;
 }
 
 function drawScene() {
