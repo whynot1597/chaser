@@ -1,4 +1,22 @@
 canvas {
   border: 1px solid blue;
-  margin: 20px;
+  margin-top: 20px;
+  background-image:url("paper.gif");
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
+progress {
+  width: 300px;
+}
+progress:after {
+  content: attr(value)'%';
+}
+
+h1 {
+  font: 32px "Brush Script MT";
+}
+
+body {
+  padding-left: 20px;
 }
