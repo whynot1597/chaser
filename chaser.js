@@ -97,6 +97,10 @@ function endGame() {
   console.log("GAME OVER");
   window.clearInterval(addEnemyInterval);
   window.clearInterval(addHealthInterval);
+  ctx.font = "50px Arial";
+  ctx.fillStyle = "black"
+  ctx.textAlign = "center";
+  ctx.fillText("You are dead...", canvas.width / 2, canvas.height / 2);
 }
 
 function drawScene() {
