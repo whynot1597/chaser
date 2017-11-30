@@ -115,5 +115,5 @@ function drawScene() {
   }
 }
 
-//backgroundSong.play();
+
 requestAnimationFrame(drawScene);
