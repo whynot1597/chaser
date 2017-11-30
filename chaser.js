@@ -1,5 +1,5 @@
 const canvas = document.querySelector("canvas");
-let backgroundSong = document.querySelector("backgroundSong");
+const backgroundSong = document.getElementById("backgroundSong");
 const ctx = canvas.getContext("2d");
 const progressBar = document.querySelector("progress");
 let enemies = [];
