@@ -10,7 +10,9 @@ let playerIsAlive = true;
 document.querySelector("span").innerHTML = numberOfEnemies;
 
 function addHealth() {
-  progressBar.value += 5;
+  if (progressBar.value < 95) {
+    progressBar.value += 5;
+  }
 }
 
 function distanceBetween(sprite1, sprite2) {
