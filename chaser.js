@@ -112,6 +112,7 @@ function testForHighScore() {
     highscore = score;
     alert(highscore);
   }
+}
 
 function restartGame() {
   if (!playerIsAlive) {
