@@ -11,7 +11,7 @@ span {
 progress {
   width: 300px;
 }
-progress:after {
+progress:before {
   content: attr(value)'%';
 }
 
