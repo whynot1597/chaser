@@ -93,7 +93,7 @@ function updateScene() {
 
 function endGame() {
   backgroundSong.pause();
-  backgroundSong.time = 0;
+  backgroundSong.currentTime = 0;
   window.clearInterval(addEnemyInterval);
   window.clearInterval(addHealthInterval);
   ctx.font = "50px Arial";
