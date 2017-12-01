@@ -8,6 +8,7 @@ let addHealthInterval = undefined;
 let addEnemiesInterval = undefined;
 let time = 0;
 let playerIsAlive = true;
+let highscore = 0;
 document.querySelector("span").innerHTML = numberOfEnemies;
 
 function addHealth() {
@@ -102,7 +103,15 @@ function endGame() {
   ctx.fillStyle = "white"
   ctx.textAlign = "center";
   ctx.fillText("You are dead...", canvas.width / 2, canvas.height / 2);
+  testForHighScore();
 }
+
+function testForHighScore(); {
+  score = enemies.length;
+  if (typeof(highscore) === "undefined" || (score > highscore)) {
+    highscore = score;
+    alert(highscore);
+  }
 
 function restartGame() {
   if (!playerIsAlive) {
