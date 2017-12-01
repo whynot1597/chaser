@@ -28,6 +28,7 @@ class Sprite {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     ctx.fill();
+    ctx.strokeStyle = 'white';
     ctx.stroke();
   }
 }
@@ -69,7 +70,7 @@ function moveToward(leader, follower, speed) {
 }
 
 function clearBackground() {
-  ctx.fillStyle = "green";
+  ctx.fillStyle = "black";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
