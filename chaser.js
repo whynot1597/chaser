@@ -1,6 +1,7 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 const progressBar = document.querySelector("progress");
+const backgroundSong = document.getElementById("backgroundSong");
 let enemies = [];
 let numberOfEnemies = 0;
 let addEnemiesInterval = undefined;
@@ -91,7 +92,8 @@ function updateScene() {
 }
 
 function endGame() {
-  console.log("GAME OVER");
+  backgroundSong.pause();
+  backgroundSong.time = 0;
   window.clearInterval(addEnemyInterval);
   window.clearInterval(addHealthInterval);
   ctx.font = "50px Arial";
@@ -105,6 +107,7 @@ function restartGame() {
   document.querySelector("span").innerHTML = 0;
   progressBar.value = 100;
   startIntervals();
+  backgroundSong.play();
   requestAnimationFrame(drawScene);
 }
 
