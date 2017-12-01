@@ -4,6 +4,7 @@ canvas {
   background-image:url("paper.gif");
   background-repeat:no-repeat;
   background-size:cover;
+  float: left;
 }
 
 progress {
@@ -19,9 +20,4 @@ h1 {
 
 body {
   padding-left: 20px;
-}
-
-
-div#gameInfo {
-  float: right;
 }
