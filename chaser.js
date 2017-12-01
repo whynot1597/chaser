@@ -8,7 +8,6 @@ let addHealthInterval = undefined;
 let addEnemiesInterval = undefined;
 let time = 0;
 let playerIsAlive = true;
-let highscore = 0;
 document.querySelector("span").innerHTML = numberOfEnemies;
 
 function addHealth() {
