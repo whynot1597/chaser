@@ -4,6 +4,7 @@ const progressBar = document.querySelector("progress");
 const backgroundSong = document.getElementById("backgroundSong");
 let enemies = [];
 let numberOfEnemies = 0;
+let addHealthInterval = undefined;
 let addEnemiesInterval = undefined;
 let time = 0;
 let playerIsAlive = true;
@@ -77,7 +78,6 @@ function addEnemy() {
   numberOfEnemies = enemies.length;
   document.querySelector("span").innerHTML = numberOfEnemies;
 }
-addEnemyInterval = setInterval(addEnemy, 2000);
 
 function updateScene() {
   moveToward(mouse, player, player.speed);
@@ -116,8 +116,8 @@ function restartGame() {
 }
 
 function startIntervals() {
-  let addEnemyInterval = setInterval(addEnemy, 2000);
-  let addHealthInterval = setInterval(addHealth, 5000);
+  addEnemyInterval = setInterval(addEnemy, 2000);
+  addHealthInterval = setInterval(addHealth, 5000);
 }
 
 function drawScene() {
