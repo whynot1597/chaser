@@ -106,7 +106,7 @@ function endGame() {
   testForHighScore();
 }
 
-function testForHighScore(); {
+function testForHighScore() {
   score = enemies.length;
   if (typeof(highscore) === "undefined" || (score > highscore)) {
     highscore = score;
