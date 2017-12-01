@@ -1,9 +1,6 @@
 canvas {
   border: 1px solid blue;
-  margin-top: 20px;
-  background-image:url("paper.gif");
-  background-repeat:no-repeat;
-  background-size:cover;
+  margin-right: 10px;
   float: left;
 }
 
@@ -19,5 +16,9 @@ h1 {
 }
 
 body {
-  padding-left: 20px;
+  padding-left: 10px;
+}
+
+#gameInfo {
+  margin-top: 20px;
 }
