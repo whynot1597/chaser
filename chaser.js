@@ -6,6 +6,7 @@ let enemies = [];
 let numberOfEnemies = 0;
 let addEnemiesInterval = undefined;
 let time = 0;
+let playerIsAlive = true;
 document.querySelector("span").innerHTML = numberOfEnemies;
 
 function addHealth() {
@@ -92,6 +93,7 @@ function updateScene() {
 }
 
 function endGame() {
+  playerIsAlive = false;
   backgroundSong.pause();
   backgroundSong.currentTime = 0;
   window.clearInterval(addEnemyInterval);
@@ -103,12 +105,15 @@ function endGame() {
 }
 
 function restartGame() {
-  enemies = [];
-  document.querySelector("span").innerHTML = 0;
-  progressBar.value = 100;
-  startIntervals();
-  backgroundSong.play();
-  requestAnimationFrame(drawScene);
+  if (!playerIsAlive) {
+    enemies = [];
+    document.querySelector("span").innerHTML = 0;
+    progressBar.value = 100;
+    startIntervals();
+    backgroundSong.play();
+    playerIsAlive = true;
+    requestAnimationFrame(drawScene);
+  }
 }
 
 function startIntervals() {
