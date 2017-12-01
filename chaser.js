@@ -106,12 +106,12 @@ function endGame() {
 
 function restartGame() {
   if (!playerIsAlive) {
+    playerIsAlive = true;
     enemies = [];
     document.querySelector("span").innerHTML = 0;
     progressBar.value = 100;
     startIntervals();
     backgroundSong.play();
-    playerIsAlive = true;
     requestAnimationFrame(drawScene);
   }
 }
