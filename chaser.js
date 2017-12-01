@@ -12,7 +12,6 @@ document.querySelector("span").innerHTML = numberOfEnemies;
 function addHealth() {
   progressBar.value += 5;
 }
-let addHealthInterval = setInterval(addHealth, 5000);
 
 function distanceBetween(sprite1, sprite2) {
   return Math.hypot(sprite1.x - sprite2.x, sprite1.y - sprite2.y);
@@ -117,7 +116,7 @@ function restartGame() {
 }
 
 function startIntervals() {
-  addEnemyInterval = setInterval(addEnemy, 2000);
+  let addEnemyInterval = setInterval(addEnemy, 2000);
   let addHealthInterval = setInterval(addHealth, 5000);
 }
 
@@ -134,4 +133,5 @@ function drawScene() {
 }
 
 backgroundSong.play();
+startIntervals();
 requestAnimationFrame(drawScene);
