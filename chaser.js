@@ -7,7 +7,7 @@ let addHealthInterval = undefined;
 let addEnemiesInterval = undefined;
 let isInvincible= false;
 let playerIsAlive = true;
-document.querySelector("span").innerHTML = numberOfEnemies;
+document.querySelector("span").innerHTML = enemies.length;
 
 function addHealth() {
   if (progressBar.value < 95) {
