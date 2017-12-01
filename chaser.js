@@ -1,9 +1,8 @@
 const canvas = document.querySelector("canvas");
-const backgroundSong = document.getElementById("backgroundSong");
 const ctx = canvas.getContext("2d");
 const progressBar = document.querySelector("progress");
 let enemies = [];
-let numberOfEnemies = enemies.length;
+let numberOfEnemies = 0;
 let addEnemiesInterval = undefined;
 let time = 0;
 document.querySelector("span").innerHTML = numberOfEnemies;
@@ -74,7 +73,7 @@ function clearBackground() {
 
 function addEnemy() {
   enemies.push(new Enemy());
-  numberOfEnemies++;
+  numberOfEnemies = enemies.length;
   document.querySelector("span").innerHTML = numberOfEnemies;
 }
 addEnemyInterval = setInterval(addEnemy, 2000);
@@ -92,8 +91,6 @@ function updateScene() {
 }
 
 function endGame() {
-  backgroundSong.pause();
-  backgroundSong.currentTime = 0;
   console.log("GAME OVER");
   window.clearInterval(addEnemyInterval);
   window.clearInterval(addHealthInterval);
@@ -101,6 +98,19 @@ function endGame() {
   ctx.fillStyle = "black"
   ctx.textAlign = "center";
   ctx.fillText("You are dead...", canvas.width / 2, canvas.height / 2);
+}
+
+function restartGame() {
+  enemies = [];
+  document.querySelector("span").innerHTML = 0;
+  progressBar.value = 100;
+  startIntervals();
+  requestAnimationFrame(drawScene);
+}
+
+function startIntervals() {
+  addEnemyInterval = setInterval(addEnemy, 2000);
+  let addHealthInterval = setInterval(addHealth, 5000);
 }
 
 function drawScene() {
@@ -115,5 +125,4 @@ function drawScene() {
   }
 }
 
-backgroundSong.play();
 requestAnimationFrame(drawScene);
