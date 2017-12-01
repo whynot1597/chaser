@@ -3,10 +3,9 @@ const ctx = canvas.getContext("2d");
 const progressBar = document.querySelector("progress");
 const backgroundSong = document.getElementById("backgroundSong");
 let enemies = [];
-let numberOfEnemies = 0;
 let addHealthInterval = undefined;
 let addEnemiesInterval = undefined;
-let time = 0;
+let isInvincible= false;
 let playerIsAlive = true;
 document.querySelector("span").innerHTML = numberOfEnemies;
 
@@ -76,18 +75,17 @@ function clearBackground() {
 
 function addEnemy() {
   enemies.push(new Enemy());
-  numberOfEnemies = enemies.length;
-  document.querySelector("span").innerHTML = numberOfEnemies;
+  document.querySelector("span").innerHTML = enemies.length;
 }
 
 function updateScene() {
   moveToward(mouse, player, player.speed);
   enemies.forEach(enemy => moveToward(player, enemy, enemy.speed));
   enemies.forEach(enemy => {
-    if (haveCollided(enemy, player) && time === 0) {
+    if (haveCollided(enemy, player) && isInvincible === false) {
       progressBar.value -= 25;
-      time = 1;
-      setTimeout(() => time = 0, 1000);
+      isInvincible = true;
+      setTimeout(() => isInvincible = false, 1000);
     }
   });
 }
