@@ -98,7 +98,7 @@ function endGame() {
   backgroundSong.currentTime = 0;
   window.clearInterval(addEnemyInterval);
   window.clearInterval(addHealthInterval);
-  ctx.fontSize = "50px";
+  ctx.font = "50px spooky_light";
   ctx.fillStyle = "red";
   ctx.textAlign = "center";
   ctx.fillText("You are dead...", canvas.width / 2, canvas.height / 2);
