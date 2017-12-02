@@ -4,9 +4,5 @@
 
 @font-face {
     font-family: 'spooky_lightregular';
-    src: url('spooky_light-webfont.woff2') format('woff2'),
-         url('spooky_light-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+    src: url('spooky_light.ttf') format('ttf')
 }
