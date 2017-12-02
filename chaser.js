@@ -8,6 +8,7 @@ let addHealthInterval = undefined;
 let addEnemiesInterval = undefined;
 let isInvincible= false;
 let playerIsAlive = true;
+let highscore = 0;
 document.querySelector("span").innerHTML = enemies.length;
 
 function addHealth() {
@@ -110,10 +111,10 @@ function endGame() {
 }
 
 function testForHighScore() {
-  score = enemies.length;
-  if (typeof(highscore) === "undefined" || (score > highscore)) {
+  let score = enemies.length;
+  if (score > highscore) {
     highscore = score;
-    alert(highscore);
+    document.getElementById("highscore").innerHTML = highscore;
   }
 }
 
