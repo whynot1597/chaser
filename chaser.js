@@ -86,6 +86,8 @@ function updateScene() {
   enemies.forEach(enemy => {
     if (haveCollided(enemy, player) && isInvincible === false) {
       progressBar.value -= 25;
+      player.color = "white";
+      setTimeout(() => player.color = "red", 100);
       isInvincible = true;
       setTimeout(() => isInvincible = false, 1000);
     }
