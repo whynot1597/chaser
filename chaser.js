@@ -2,6 +2,7 @@ const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 const progressBar = document.querySelector("progress");
 const backgroundSong = document.getElementById("backgroundSong");
+const damageSoundEffect = document.getElementById("damageSoundEffect");
 let enemies = [];
 let addHealthInterval = undefined;
 let addEnemiesInterval = undefined;
@@ -87,6 +88,7 @@ function updateScene() {
     if (haveCollided(enemy, player) && isInvincible === false) {
       progressBar.value -= 25;
       player.color = "white";
+      damageSoundEffect.play();
       setTimeout(() => player.color = "red", 100);
       isInvincible = true;
       setTimeout(() => isInvincible = false, 1000);
