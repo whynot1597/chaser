@@ -16,22 +16,16 @@ progress:before {
 }
 
 h1 {
-  font: 32px "spooky_lightregular";
+  font: 32px "spooky_light";
 }
 
 body {
   padding: 10px;
-  font: 32px "spooky_lightregular";
+  font: 32px "spooky_light";
 }
 
 #gameInfo {
   margin-top: 20px;
   padding-left: 10px;
   font-size: 30px;
-}
-
-@font-face {
-  font-family: spookyFont;
-  src: url('myFancyFont.ttf'),
-  url('myFancyFont.eot');
 }
