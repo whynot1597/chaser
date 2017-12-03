@@ -121,9 +121,43 @@ function testForHighScore() {
       }
       document.getElementById(`score${a}`).innerHTML = score;
       document.getElementById(`date${a}`).innerHTML = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+      storeHighscoresToCookies();
       return;
     }
   }
+}
+
+storeHighscoresToCookies() {
+  let cookieScore = undefined;
+  for( let a = 1; a <= 5; a++) {
+    cookieScore = document.getElementById(`score${a}`);
+    cookieDate = document.getElementById(`date${a}`);
+    document.cookie = `score${a}=${cookieScore}`;
+    document.cookie = `date${a}=${cookieDate}`;
+  }
+}
+
+loadHighscores() {
+  for (let a = 1; a <=5; a++) {
+    document.getElementById(`score${a}`).innerHTML = getCookie(`score${a}`);
+    document.getElementById(`date${a}`).innerHTML = getCookie(`date${a}`);
+  }
+}
+
+getCookie(cookieName) {
+  let name = cookieName + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }
 
 function restartGame() {
@@ -143,6 +177,10 @@ function startIntervals() {
   addHealthInterval = setInterval(addHealth, 5000);
 }
 
+function loadHighscores() {
+  for (a = 1; a <= 5; a++) {
+    document.getElementById(`score${a}`).innerHTML = 
+
 function drawScene() {
   clearBackground();
   player.draw();
@@ -155,6 +193,7 @@ function drawScene() {
   }
 }
 
+loadHighscores();
 backgroundSong.play();
 startIntervals();
 requestAnimationFrame(drawScene);
