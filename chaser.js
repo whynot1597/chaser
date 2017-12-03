@@ -45,13 +45,13 @@ function getPosition() {
   this.x = firstDimension;
   this.y = secondDimension;
   if (getRandomBoolean()) {
-    this.x = firstDimension;
-    this.y = secondDimension;
+    this.x = secondDimension;
+    this.y = firstDimension;
   }
 }
 
 function getRandomBoolean() {
-  return (Math.round(Math.random()) < .5);
+  return (Math.random() < .5);
 }
 
 class Player extends Sprite {
