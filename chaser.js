@@ -37,11 +37,11 @@ class Sprite {
 }
 
 function  getPosition() {
-  let randomPosition = Math.floor(Math.random() * 20)
-  if (randomPosition < 10) { 
-    return randomPosition;
+  let randomPosition = Math.floor(Math.random() * 600)
+  if (randomPosition < 300) { 
+    return 0;
   } else {
-    return randomPosition + 600;
+    return 600;
   }
 }
 
