@@ -129,9 +129,10 @@ function testForHighScore() {
 
 function storeHighscoresToCookies() {
   let cookieScore = undefined;
+  let cookieDate = undefined;
   for( let a = 1; a <= 5; a++) {
-    cookieScore = document.getElementById(`score${a}`);
-    cookieDate = document.getElementById(`date${a}`);
+    cookieScore = document.getElementById(`score${a}`).innerHTML;
+    cookieDate = document.getElementById(`date${a}`).innerHTML;
     document.cookie = `score${a}=${cookieScore}`;
     document.cookie = `date${a}=${cookieDate}`;
   }
