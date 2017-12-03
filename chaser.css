@@ -16,7 +16,7 @@ progress:before {
 }
 
 h1 {
-  font: 32px "spooky_light";
+  font: 40px "spooky_light";
 }
 
 body {
@@ -26,5 +26,5 @@ body {
 #gameInfo {
   margin-top: 20px;
   padding-left: 10px;
-  font-size: 30px;
+  font-size: 15px;
 }
