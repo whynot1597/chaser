@@ -116,6 +116,7 @@ function endGame() {
   ctx.fillStyle = "red";
   ctx.textAlign = "center";
   ctx.strokeText("You are dead...", canvas.width / 2, canvas.height / 2);
+  ctx.fillText("You are dead...", canvas.width / 2, canvas.height / 2);
   testForHighScore();
 }
 
