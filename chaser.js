@@ -88,9 +88,6 @@ function clearBackground() {
 
 function addEnemy() {
   enemies.push(new Enemy());
-  console.log(enemies[0].x,enemies[0].y)
-  console.log(enemies[1].x,enemies[1].y)
-  console.log(enemies[2].x,enemies[2].y)
   document.querySelector("span").innerHTML = enemies.length;
 }
 
