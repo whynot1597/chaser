@@ -34,13 +34,14 @@ class Sprite {
     ctx.strokeStyle = 'white';
     ctx.stroke();
   }
-  getPosition() {
-    let randomPosition = Math.floor(Math.random() * 20)
-    if (randomPosition < 10) {
-      return randomPosition;
-    } else {
-      return randomPosition + 600;
-    }
+}
+
+function  getPosition() {
+  let randomPosition = Math.floor(Math.random() * 20)
+  if (randomPosition < 10) { 
+    return randomPosition;
+  } else {
+    return randomPosition + 600;
   }
 }
 
