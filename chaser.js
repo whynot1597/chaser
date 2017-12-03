@@ -127,7 +127,7 @@ function testForHighScore() {
   }
 }
 
-storeHighscoresToCookies() {
+function storeHighscoresToCookies() {
   let cookieScore = undefined;
   for( let a = 1; a <= 5; a++) {
     cookieScore = document.getElementById(`score${a}`);
@@ -137,14 +137,14 @@ storeHighscoresToCookies() {
   }
 }
 
-loadHighscores() {
+function loadHighscores() {
   for (let a = 1; a <=5; a++) {
     document.getElementById(`score${a}`).innerHTML = getCookie(`score${a}`);
     document.getElementById(`date${a}`).innerHTML = getCookie(`date${a}`);
   }
 }
 
-getCookie(cookieName) {
+function getCookie(cookieName) {
   let name = cookieName + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');
