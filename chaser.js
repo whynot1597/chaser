@@ -34,6 +34,14 @@ class Sprite {
     ctx.strokeStyle = 'white';
     ctx.stroke();
   }
+  getPosition() {
+    let randomPosition = Math.floor(Math.random() * 20)
+    if (randomPosition < 10) {
+      return randomPosition;
+    } else {
+      return randomPosition + 600;
+    }
+  }
 }
 
 class Player extends Sprite {
@@ -48,8 +56,8 @@ let player = new Player(250, 150, 25, "red", 0.5);
 class Enemy extends Sprite {
   constructor() {
     super();
-    let x = Math.floor(Math.random() * 600);
-    let y = Math.floor(Math.random() * 600);
+    let x = getPosition();
+    let y = getPosition();
     let radius = Math.floor(Math.random() * 10 + 10);
     let speed = Math.random() / 10;
     let color = `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(
