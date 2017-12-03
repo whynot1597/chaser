@@ -37,11 +37,18 @@ class Sprite {
 }
 
 function  getPosition() {
-  let randomPosition = Math.floor(Math.random() * 600)
-  if (randomPosition < 300) { 
-    return 0;
+  let a = Math.floor(Math.random() * 600);
+  if (Math.round(Math.random()) < .5) {
+    let b = 0;
   } else {
-    return 600;
+    let b = 600;
+  }
+  if (Math.round(Math.random()) < .5) {
+    this.x = b;
+    this.y = a;
+  } else {
+    this.x = a;
+    this.y = b;
   }
 }
 
@@ -57,8 +64,7 @@ let player = new Player(250, 150, 25, "red", 0.5);
 class Enemy extends Sprite {
   constructor() {
     super();
-    let x = getPosition();
-    let y = getPosition();
+    getPosition();
     let radius = Math.floor(Math.random() * 10 + 10);
     let speed = Math.random() / 10;
     let color = `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(
