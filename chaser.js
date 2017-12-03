@@ -37,18 +37,21 @@ class Sprite {
 }
 
 function getPosition() {
-  let a = Math.floor(Math.random() * 600);
-  let b = 0;
-  if (Math.round(Math.random()) < .5) {
-    b = 600;
+  let firstDimension = Math.floor(Math.random() * 600);
+  let secondDimension = 0;
+  if (getRandomBoolean()) {
+    secondDimension = 600;
   }
-  if (Math.round(Math.random()) < .5) {
-    this.x = b;
-    this.y = a;
-  } else {
-    this.x = a;
-    this.y = b;
+  this.x = firstDimension;
+  this.y = secondDimension;
+  if (getRandomBoolean()) {
+    this.x = firstDimension;
+    this.y = secondDimension;
   }
+}
+
+function getRandomBoolean() {
+  return (Math.round(Math.random()) < .5);
 }
 
 class Player extends Sprite {
@@ -145,7 +148,7 @@ function testForHighScore() {
 function storeHighscoresToCookies() {
   let cookieScore = undefined;
   let cookieDate = undefined;
-  for( let a = 1; a <= 5; a++) {
+  for(let a = 1; a <= 5; a++) {
     cookieScore = document.getElementById(`score${a}`).innerHTML;
     cookieDate = document.getElementById(`date${a}`).innerHTML;
     document.cookie = `score${a}=${cookieScore}`;
