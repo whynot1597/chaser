@@ -36,7 +36,7 @@ class Sprite {
   }
 }
 
-function  getPosition() {
+function getPosition() {
   let a = Math.floor(Math.random() * 600);
   if (Math.round(Math.random()) < .5) {
     let b = 0;
