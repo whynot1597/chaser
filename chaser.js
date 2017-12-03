@@ -40,11 +40,16 @@ function  getPosition() {
   let a = Math.floor(Math.random() * 600);
   if (Math.round(Math.random()) < .5) {
     let b = 0;
+    console.log(b);
   } else {
     let b = 600;
+    console.log(b);
   }
+  console.log(b);
   if (Math.round(Math.random()) < .5) {
+    console.log(b);
     this.x = b;
+    console.log(b);
     this.y = a;
   } else {
     this.x = a;
