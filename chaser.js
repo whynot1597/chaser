@@ -177,10 +177,6 @@ function startIntervals() {
   addHealthInterval = setInterval(addHealth, 5000);
 }
 
-function loadHighscores() {
-  for (a = 1; a <= 5; a++) {
-    document.getElementById(`score${a}`).innerHTML = 
-
 function drawScene() {
   clearBackground();
   player.draw();
