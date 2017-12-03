@@ -112,9 +112,17 @@ function endGame() {
 
 function testForHighScore() {
   let score = enemies.length;
-  if (score > highscore) {
-    highscore = score;
-    document.getElementById("highscore").innerHTML = highscore;
+  for (let a = 1; a <= 5; a++) {
+    if (score > document.getElementById(`score${a}`).innerHTML) {
+      let date = new Date();
+      for(let b = 5; b > a; b--) {
+        document.getElementById(`score${b}`).innerHTML = document.getElementById(`score${b-1}`).innerHTML;
+        document.getElementById(`date${b}`).innerHTML = document.getElementById(`date${b-1}`).innerHTML;
+      }
+      document.getElementById(`score${a}`).innerHTML = score;
+      document.getElementById(`date${a}`).innerHTML = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+      return;
+    }
   }
 }
 
