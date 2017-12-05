@@ -4,15 +4,12 @@ canvas {
   margin-right: 10px;
 }
 
-span {
+#numberOfEnemiesSpan {
   color: red;
 }
 
 progress {
   width: 300px;
-}
-progress:before {
-  content: attr(value)'%';
 }
 
 h1 {
