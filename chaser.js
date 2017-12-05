@@ -1,6 +1,7 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 const progressBar = document.querySelector("progress");
+const healthPercentage = document.getElementById("healthPercentage");
 const backgroundSong = document.getElementById("backgroundSong");
 const damageSoundEffect = document.getElementById("damageSoundEffect");
 let enemies = [];
@@ -14,6 +15,7 @@ document.querySelector("span").innerHTML = enemies.length;
 function addHealth() {
   if (progressBar.value < 95) {
     progressBar.value += 5;
+    healthPercentage.innerHTML = progressBar.value;
   }
 }
 
@@ -105,6 +107,7 @@ function updateScene() {
   enemies.forEach(enemy => {
     if (haveCollided(enemy, player) && isInvincible === false) {
       progressBar.value -= 25;
+      healthPercentage.innerHTML = progressBar.value;
       player.color = "white";
       damageSoundEffect.play();
       setTimeout(() => player.color = "red", 100);
