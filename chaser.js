@@ -2,6 +2,8 @@ const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 const progressBar = document.querySelector("progress");
 const healthPercentage = document.getElementById("healthPercentage");
+healthPercentage.innerHTML = progressBar.value;
+const numberOfEnemies = document.getElementById("numberOfEnemies");
 const backgroundSong = document.getElementById("backgroundSong");
 const damageSoundEffect = document.getElementById("damageSoundEffect");
 let enemies = [];
@@ -10,8 +12,7 @@ let addEnemiesInterval = undefined;
 let isInvincible= false;
 let playerIsAlive = true;
 let highscore = 0;
-document.getElementById("numberOfEnemies").innerHTML = enemies.length;
-document.getElementById("healthPercentage").innerHTML = progressBar.value;
+numberOfEnemies.innerHTML = enemies.length;
 
 function addHealth() {
   if (progressBar.value < 95) {
@@ -191,8 +192,9 @@ function restartGame() {
   if (!playerIsAlive) {
     playerIsAlive = true;
     enemies = [];
-    document.querySelector("span").innerHTML = 0;
+    numberOfEnemies.innerHTML = enemies.length;
     progressBar.value = 100;
+    healthPercentage.innerHTML = progressBar.value;
     startIntervals();
     backgroundSong.play();
     requestAnimationFrame(drawScene);
