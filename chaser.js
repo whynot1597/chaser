@@ -11,6 +11,7 @@ let isInvincible= false;
 let playerIsAlive = true;
 let highscore = 0;
 document.getElementById("numberOfEnemies").innerHTML = enemies.length;
+document.getElementById("healthPercentage").innerHTML = progressBar.value;
 
 function addHealth() {
   if (progressBar.value < 95) {
