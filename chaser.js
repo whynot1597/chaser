@@ -105,7 +105,7 @@ function addEnemy() {
 
 function updateScene() {
   moveToward(mouse, player, player.speed);
-  enemies.forEach(enemy => moveToward(player, enemy, enemy.speed));]
+  enemies.forEach(enemy => moveToward(player, enemy, enemy.speed));
   enemies.forEach(enemy => {
     if (haveCollided(enemy, player) && isInvincible === false) {
       progressBar.value -= 25;
