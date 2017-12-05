@@ -61,12 +61,7 @@ function getRandomBoolean() {
 class Player extends Sprite {
   constructor(x, y, radius, color, speed) {
     super();
-    this.image = new Image();
-    this.image.src = "armyFace.png";
     Object.assign(this, { x, y, radius, color, speed });
-  }
-  draw() {
-    ctx.drawImage(this.image, this.x, this.y, 25, 30);
   }
 }
 
