@@ -10,7 +10,7 @@ let addEnemiesInterval = undefined;
 let isInvincible= false;
 let playerIsAlive = true;
 let highscore = 0;
-document.querySelector("span").innerHTML = enemies.length;
+document.querySelector("numberOfEnemies").innerHTML = enemies.length;
 
 function addHealth() {
   if (progressBar.value < 95) {
@@ -100,7 +100,7 @@ function clearBackground() {
 
 function addEnemy() {
   enemies.push(new Enemy());
-  document.querySelector("span").innerHTML = enemies.length;
+  document.querySelector("numberOfEnemies").innerHTML = enemies.length;
 }
 
 function updateScene() {
