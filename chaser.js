@@ -18,8 +18,6 @@ function addHealth() {
   if (progressBar.value < 95) {
     progressBar.value += 5;
     healthPercentage.innerHTML = progressBar.value;
-    console.log(healthPercentage.innerHTML,"add");
-    console.log(progressBar.value,"add");
   }
 }
 
@@ -102,7 +100,7 @@ function clearBackground() {
 
 function addEnemy() {
   enemies.push(new Enemy());
-  document.querySelector("numberOfEnemies").innerHTML = enemies.length;
+  numberOfEnemies.innerHTML = enemies.length;
 }
 
 function updateScene() {
@@ -112,8 +110,6 @@ function updateScene() {
     if (haveCollided(enemy, player) && isInvincible === false) {
       progressBar.value -= 25;
       healthPercentage.innerHTML = progressBar.value;
-      console.log(healthPercentage.innerHTML,"DAMAGE");
-      console.log(progressBar.value,"damage"); 
       player.color = "white";
       damageSoundEffect.play();
       setTimeout(() => player.color = "red", 100);
