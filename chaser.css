@@ -18,7 +18,7 @@ h1 {
 
 body {
   padding: 10px;
-  opacity: 0;
+  opacity: 1.0;
 }
 
 #gameInfo {
