@@ -24,13 +24,13 @@ function addHealth() {
 
 function changeBarColor(value) {
   if (value <= 25) {
-    healthPercentage.style.backgroundColor = "red";
+    progressBar.style.backgroundColor = "red";
   } else if (value <= 50) {
-    healthPercentage.style.backgroundColor = "orange";
+    progressBar.style.backgroundColor = "orange";
   } else if (value <= 75) {
-    healthPercentage.style.backgroundColor = "yellow";
+    progressBar.style.backgroundColor = "yellow";
   } else {
-    healthPercentage.style.backgroundColor = "green";
+    progressBar.style.backgroundColor = "green";
   }
 }
 
