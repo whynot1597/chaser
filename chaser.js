@@ -1,6 +1,6 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
-const progressBar = document.querySelector("progress");
+const progressBar = document.getElementById("progressBar");
 const healthPercentage = document.getElementById("healthPercentage");
 healthPercentage.innerHTML = progressBar.value;
 const numberOfEnemies = document.getElementById("numberOfEnemies");
