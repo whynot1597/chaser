@@ -103,21 +103,9 @@ function addEnemy() {
   numberOfEnemies.innerHTML = enemies.length;
 }
 
-function pushOff(c1, c2) {
-  let [dx, dy] = [c2.x - c1.x, c2.y - c1.y];
-  const L = Math.hypot(dx, dy);
-  let distToMove = c1.radius + c2.radius - L;
-  if (distToMove > 0) {
-    dx /= L; dy /= L;
-    c1.x -= dx * distToMove / 2; c1.y -= dy * distToMove / 2;
-    c2.x += dx * distToMove / 2; c2.y += dy * distToMove / 2; 
-  }
-}
-
 function updateScene() {
   moveToward(mouse, player, player.speed);
   enemies.forEach(enemy => moveToward(player, enemy, enemy.speed));
-  enemies.forEach((enemy, i) => pushOff(enemy, enemies[(i+1) % enemies.length]));
   enemies.forEach(enemy => {
     if (haveCollided(enemy, player) && isInvincible === false) {
       progressBar.value -= 25;
