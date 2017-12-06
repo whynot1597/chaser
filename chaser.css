@@ -10,6 +10,7 @@ canvas {
 
 progress {
   width: 300px;
+  background-color: green;
 }
 
 h1 {
