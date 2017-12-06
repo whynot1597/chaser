@@ -22,8 +22,8 @@ body {
 }
 
 #gameInfo {
-  margin-top: 20px;
-  padding-left: 10px;
+  background-color: #ffffffab;
+  padding: 10px;
   font-size: 15px;
   display: inline;
   position: absolute;
@@ -31,7 +31,6 @@ body {
 
 html { 
   background: url(battlefieldBackground.jpg) no-repeat center center fixed; 
-  background-color:rgba(0, 0, 0, 0);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
