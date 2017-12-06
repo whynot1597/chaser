@@ -8,7 +8,7 @@ canvas {
   color: red;
 }
 
-progress {
+#progressBar {
   width: 300px;
   background-color: green;
 }
