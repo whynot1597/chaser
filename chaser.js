@@ -18,20 +18,6 @@ function addHealth() {
   if (progressBar.value <= 95) {
     progressBar.value += 5;
     healthPercentage.innerHTML = progressBar.value;
-    changeBarColor(progressBar.value);
-  }
-}
-
-function changeBarColor(value) {
-  if (value <= 25) {
-    console.log(value);
-    progressBar.backgroundColor = "red";
-  } else if (value <= 50) {
-    progressBar.backgroundColor = "orange";
-  } else if (value <= 75) {
-    progressBar.backgroundColor = "yellow";
-  } else {
-    progressBar.backgroundColor = "green";
   }
 }
 
@@ -124,7 +110,6 @@ function updateScene() {
     if (haveCollided(enemy, player) && isInvincible === false) {
       progressBar.value -= 25;
       healthPercentage.innerHTML = progressBar.value;
-      changeBarColor(progressBar.value);
       player.color = "white";
       damageSoundEffect.play();
       setTimeout(() => player.color = "red", 100);
