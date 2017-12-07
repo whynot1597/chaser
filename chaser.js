@@ -9,7 +9,7 @@ const damageSoundEffect = document.getElementById("damageSoundEffect");
 let enemies = [];
 let addHealthInterval = undefined;
 let addEnemiesInterval = undefined;
-let isInvincible= false;
+let isInvincible = false;
 let playerIsAlive = true;
 let highscore = 0;
 numberOfEnemies.innerHTML = enemies.length;
@@ -35,7 +35,7 @@ class Sprite {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     ctx.fill();
-    ctx.strokeStyle = 'white';
+    ctx.strokeStyle = "white";
     ctx.stroke();
   }
 }
@@ -55,7 +55,7 @@ function getPosition() {
 }
 
 function getRandomBoolean() {
-  return (Math.random() < .5);
+  return Math.random() < 0.5;
 }
 
 class Player extends Sprite {
@@ -112,9 +112,9 @@ function updateScene() {
       healthPercentage.innerHTML = progressBar.value;
       player.color = "white";
       damageSoundEffect.play();
-      setTimeout(() => player.color = "red", 100);
+      setTimeout(() => (player.color = "red"), 100);
       isInvincible = true;
-      setTimeout(() => isInvincible = false, 1000);
+      setTimeout(() => (isInvincible = false), 1000);
     }
   });
 }
@@ -138,12 +138,17 @@ function testForHighScore() {
   for (let a = 1; a <= 5; a++) {
     if (score > document.getElementById(`score${a}`).innerHTML) {
       let date = new Date();
-      for(let b = 5; b > a; b--) {
-        document.getElementById(`score${b}`).innerHTML = document.getElementById(`score${b-1}`).innerHTML;
-        document.getElementById(`date${b}`).innerHTML = document.getElementById(`date${b-1}`).innerHTML;
+      for (let b = 5; b > a; b--) {
+        document.getElementById(
+          `score${b}`
+        ).innerHTML = document.getElementById(`score${b - 1}`).innerHTML;
+        document.getElementById(`date${b}`).innerHTML = document.getElementById(
+          `date${b - 1}`
+        ).innerHTML;
       }
       document.getElementById(`score${a}`).innerHTML = score;
-      document.getElementById(`date${a}`).innerHTML = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+      document.getElementById(`date${a}`).innerHTML = `${date.getMonth() +
+        1}/${date.getDate()}/${date.getFullYear()}`;
       storeHighscoresToCookies();
       return;
     }
@@ -153,7 +158,7 @@ function testForHighScore() {
 function storeHighscoresToCookies() {
   let cookieScore = undefined;
   let cookieDate = undefined;
-  for(let a = 1; a <= 5; a++) {
+  for (let a = 1; a <= 5; a++) {
     cookieScore = document.getElementById(`score${a}`).innerHTML;
     cookieDate = document.getElementById(`date${a}`).innerHTML;
     document.cookie = `score${a}=${cookieScore}`;
@@ -162,7 +167,7 @@ function storeHighscoresToCookies() {
 }
 
 function loadHighscores() {
-  for (let a = 1; a <=5; a++) {
+  for (let a = 1; a <= 5; a++) {
     document.getElementById(`score${a}`).innerHTML = getCookie(`score${a}`);
     document.getElementById(`date${a}`).innerHTML = getCookie(`date${a}`);
   }
@@ -171,10 +176,10 @@ function loadHighscores() {
 function getCookie(cookieName) {
   let name = cookieName + "=";
   let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
-  for(let i = 0; i < ca.length; i++) {
+  let ca = decodedCookie.split(";");
+  for (let i = 0; i < ca.length; i++) {
     let c = ca[i];
-    while (c.charAt(0) == ' ') {
+    while (c.charAt(0) == " ") {
       c = c.substring(1);
     }
     if (c.indexOf(name) == 0) {
