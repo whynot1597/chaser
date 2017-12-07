@@ -38,7 +38,7 @@ body {
   outline-color: #759FB7;
 }
 
-#button:hover {
+#restartButton:hover {
   opacity: .8;
   border: 1px solid navy;
 }
