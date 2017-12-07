@@ -14,7 +14,10 @@ canvas {
 
 h1 {
   font: 40px "spooky_light";
+  color: #73c7f6;
+  -webkit-text-stroke: 1px black;
 }
+
 
 body {
   padding: 10px;
