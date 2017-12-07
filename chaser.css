@@ -29,6 +29,20 @@ body {
   position: absolute;
 }
 
+#restartButton {
+  width 150px;
+  cursor: pointer;
+  height: 40px;
+  background-color: #73C7F6;
+  border: none;
+  outline-color: #759FB7;
+}
+
+#button:hover {
+  opacity: .8;
+  border: 1px solid navy;
+}
+
 html { 
   background: url(battlefieldBackground.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
