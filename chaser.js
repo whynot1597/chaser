@@ -14,6 +14,9 @@ let playerIsAlive = true;
 let highscore = 0;
 numberOfEnemies.innerHTML = enemies.length;
 
+canvas.width = window.innerHeight;
+canvas.height = window.innerHeight;
+
 function addHealth() {
   if (progressBar.value <= 95) {
     progressBar.value += 5;
@@ -41,10 +44,10 @@ class Sprite {
 }
 
 function getPosition() {
-  let firstDimension = Math.floor(Math.random() * 600);
+  let firstDimension = Math.floor(Math.random() * canvas.height);
   let secondDimension = 0;
   if (getRandomBoolean()) {
-    secondDimension = 600;
+    secondDimension = canvas.height;
   }
   this.x = firstDimension;
   this.y = secondDimension;
