@@ -48,8 +48,8 @@ function getPosition() {
   if (getRandomBoolean()) {
     secondDimension = 600;
   }
-  this.x = firstDimension;
-  this.y = secondDimension;
+  this.x = ctx.canvas.width;
+  this.y = ctx.canvas.width;
   if (getRandomBoolean()) {
     this.x = secondDimension;
     this.y = firstDimension;
