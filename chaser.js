@@ -50,7 +50,7 @@ function getPosition() {
     secondDimension = 600;
   }
   this.x = ctx.canvas.width;
-  this.y = ctx.canvas.width;
+  this.y = ctx.canvas.height;
   if (getRandomBoolean()) {
     this.x = secondDimension;
     this.y = firstDimension;
