@@ -14,8 +14,8 @@ let playerIsAlive = true;
 let highscore = 0;
 numberOfEnemies.innerHTML = enemies.length;
 
-ctx.canvas.height = window.innerHeight;
-ctx.canvas.width = window.innerHeight;
+ctx.canvas.height = window.innerWidth;
+ctx.canvas.width = window.innerWidth;
 
 function addHealth() {
   if (progressBar.value <= 95) {
