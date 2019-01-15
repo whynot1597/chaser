@@ -14,7 +14,7 @@ let playerIsAlive = true;
 let highscore = 0;
 numberOfEnemies.innerHTML = enemies.length;
 
-ctx.canvas.height = window.innerWidth;
+ctx.canvas.height = window.innerHeight;
 ctx.canvas.width = window.innerWidth;
 
 function addHealth() {
@@ -49,11 +49,11 @@ function getPosition() {
   if (getRandomBoolean()) {
     secondDimension = 600;
   }
-  this.x = ctx.canvas.width;
-  this.y = ctx.canvas.height;
+  this.x = firstDimension;
+  this.y = secondDimension;
   if (getRandomBoolean()) {
-    this.x = ctx.canvas.height;
-    this.y = ctx.canvas.width;
+    this.x = secondDimension;
+    this.y = firstDimension;
   }
 }
 
