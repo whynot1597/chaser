@@ -14,7 +14,7 @@ let playerIsAlive = true;
 let highscore = 0;
 numberOfEnemies.innerHTML = enemies.length;
 
-ctx.canvas.height = window.innerHeight - 200;
+ctx.canvas.height = window.innerHeight - 1000;
 ctx.canvas.width = ctx.canvas.height;
 
 function addHealth() {
