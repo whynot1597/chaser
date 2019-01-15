@@ -44,10 +44,10 @@ class Sprite {
 }
 
 function getPosition() {
-  let firstDimension = Math.floor(Math.random() * ctx.canvas.width);
+  let firstDimension = Math.floor(Math.random() * canvas.width);
   let secondDimension = 0;
   if (getRandomBoolean()) {
-    secondDimension = ctx.canvas.width;
+    secondDimension = canvas.height;
   }
   this.x = firstDimension;
   this.y = secondDimension;
@@ -98,7 +98,7 @@ function moveToward(leader, follower, speed) {
 
 function clearBackground() {
   ctx.fillStyle = "black";
-  ctx.fillRect(0, 0, canvas.height, canvas.height);
+  ctx.fillRect(0, 0, canvas.width, canvas.width);
 }
 
 function addEnemy() {
