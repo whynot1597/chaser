@@ -14,8 +14,8 @@ let playerIsAlive = true;
 let highscore = 0;
 numberOfEnemies.innerHTML = enemies.length;
 
-ctx.canvas.height = window.innerHeight - 1000;
-ctx.canvas.width = ctx.canvas.height;
+canvas.height = window.innerHeight - 200;
+canvas.width = canvas.height;
 
 function addHealth() {
   if (progressBar.value <= 95) {
@@ -98,7 +98,7 @@ function moveToward(leader, follower, speed) {
 
 function clearBackground() {
   ctx.fillStyle = "black";
-  ctx.fillRect(0, 0, ctx.canvas.height, ctx.canvas.height);
+  ctx.fillRect(0, 0, canvas.height, canvas.height);
 }
 
 function addEnemy() {
