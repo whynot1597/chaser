@@ -98,7 +98,7 @@ function moveToward(leader, follower, speed) {
 
 function clearBackground() {
   ctx.fillStyle = "black";
-  ctx.fillRect(0, 0, ctx.canvas.height, ctx.canvas.width);
+  ctx.fillRect(0, 0, window.innerHeight, window.innerWidth);
 }
 
 function addEnemy() {
