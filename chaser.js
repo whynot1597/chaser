@@ -31,6 +31,8 @@ function haveCollided(sprite1, sprite2) {
 
 class Sprite {
   draw() {
+    ctx.canvas.width  = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
     ctx.fillStyle = this.color;
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
