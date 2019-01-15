@@ -14,6 +14,9 @@ let playerIsAlive = true;
 let highscore = 0;
 numberOfEnemies.innerHTML = enemies.length;
 
+ctx.canvas.width  = window.innerWidth;
+ctx.canvas.height = window.innerHeight;
+
 function addHealth() {
   if (progressBar.value <= 95) {
     progressBar.value += 5;
@@ -31,8 +34,6 @@ function haveCollided(sprite1, sprite2) {
 
 class Sprite {
   draw() {
-    ctx.canvas.width  = window.innerWidth;
-    ctx.canvas.height = window.innerHeight;
     ctx.fillStyle = this.color;
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
@@ -97,7 +98,7 @@ function moveToward(leader, follower, speed) {
 
 function clearBackground() {
   ctx.fillStyle = "black";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
 
 function addEnemy() {
