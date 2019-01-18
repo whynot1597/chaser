@@ -2,6 +2,8 @@ canvas {
   border: 1px solid blue;
   float: left;
   margin-right: 10px;
+  height: 90%
+  width: 90%
 }
 
 #numberOfEnemies {
