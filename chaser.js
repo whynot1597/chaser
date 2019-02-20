@@ -183,11 +183,29 @@ function storeHighscoresToCookies() {
 }
 
 function loadHighscores() {
-  let docRef = firebase.firestore().collection('Highscores').doc("First");
+  let colRef = firebase.firestore().collection('Highscores');
+    for (let i = 1; i <=5; i++) {
+      putScoresIn(colRef, n);
+    }
+}
+
+function putScoresIn(colRef, n) {
+  let docRef = null;
+  if (n == 1) {
+    docRef = colRef.data("First");
+  } else if (n == 2) {
+    docRef = colRef.data("Second");
+  } else if (n == 3) {
+    docRef = colRef.data("Third");
+  } else if (n == 4) {        
+    docRef = colRef.data("Fourth");
+  } else {
+    docRef = colRef.data("Fifth");
+  }
   docRef.get().then(function(doc) {
     if (doc.exists) {
-        document.getElementById(`score1`).innerHTML = doc.data().Score;
-        document.getElementById(`date1`).innerHTML = doc.data().Date;
+        document.getElementById(`score${n}`).innerHTML = doc.data().Score;
+        document.getElementById(`date${n}`).innerHTML = doc.data().Date;
     } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
