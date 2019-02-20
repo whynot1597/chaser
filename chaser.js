@@ -9,6 +9,19 @@ var config = {
       };
 var defaultApp = firebase.initializeApp(config);
 
+let user = firebase.auth().currentUser;
+var name, email, photoUrl, uid, emailVerified;
+if (user != null) {
+  name = user.displayName;
+  email = user.email;
+  photoUrl = user.photoURL;
+  emailVerified = user.emailVerified;
+  uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
+                   // this value to authenticate with your backend server, if
+                   // you have one. Use User.getToken() instead.
+}
+
+
 console.log(defaultApp.name);  // "[DEFAULT]"
 
 const canvas = document.querySelector("canvas");
@@ -278,18 +291,6 @@ function writeUserData(userId, name, score, date) {
 if (document.cookie.indexOf("CrewCentreSession=Valid") == -1) {
   location.href = "/chaser/login.html";
 }
-let user = firebase.auth().currentUser;
-var name, email, photoUrl, uid, emailVerified;
-if (user != null) {
-  name = user.displayName;
-  email = user.email;
-  photoUrl = user.photoURL;
-  emailVerified = user.emailVerified;
-  uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
-                   // this value to authenticate with your backend server, if
-                   // you have one. Use User.getToken() instead.
-}
-
 loadHighscores();
 backgroundSong.play();
 startIntervals();
