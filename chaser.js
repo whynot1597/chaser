@@ -167,6 +167,7 @@ function testForPersonalBest() {
     });
     document.getElementById(`scoreMine`).innerHTML = score;
   }
+}
 
 function testForHighScore() {
   let score = enemies.length;
