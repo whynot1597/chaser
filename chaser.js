@@ -58,7 +58,7 @@ class Sprite {
 }
 
 function changeColor() {
-  myColor = document.getElementById("myColor");
+  myColor = document.getElementById("myColor").value;
 }                                   
 
 function getPosition() {
@@ -235,7 +235,7 @@ function putScoresIn(colRef, n) {
 
 function restartGame() {
   if (!playerIsAlive) {
-    changeColor();
+    player.color = changeColor();
     playerIsAlive = true;
     enemies = [];
     numberOfEnemies.innerHTML = enemies.length;
