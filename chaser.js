@@ -11,10 +11,6 @@ var defaultApp = firebase.initializeApp(config);
 
 console.log(defaultApp.name);  // "[DEFAULT]"
 
-// You can retrieve services via the defaultApp variable...
-var defaultStorage = defaultApp.storage();
-var defaultDatabase = defaultApp.database();
-
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 const progressBar = document.getElementById("progressBar");
