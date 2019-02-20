@@ -159,9 +159,8 @@ function endGame() {
 
 function testForPersonalBest() {
   let score = enemies.length;
-  let user = firebase.auth().currentUser;
   if (score > document.getElementById(`scoreMine`).innerHTML) {
-    firebase.database().ref('users/' + user.userId).set({
+    firebase.database().ref('users/' + firebase.auth().currentUser.userId).set({
       score: score,
       date : new Date()
     });
@@ -220,9 +219,9 @@ function loadHighscores() {
       putScoresIn(colRef, i);
     }
   let user = firebase.auth().currentUser;
-  document.getElementById(`scoreMine`).innerHTML = user.score;
-  document.getElementById(`dateMine`).innerHTML = user.date;
-  document.getElementById(`nameMine`).innerHTML = user.displayName;
+  document.getElementById(`scoreMine`).innerHTML = firebase.auth().currentUser.score;
+  document.getElementById(`dateMine`).innerHTML = firebase.auth().currentUser.date;
+  document.getElementById(`nameMine`).innerHTML = firebase.auth().currentUser.displayName;
 }
 
 function putScoresIn(colRef, n) {
