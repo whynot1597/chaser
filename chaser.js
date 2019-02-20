@@ -156,16 +156,13 @@ function testForHighScore() {
       let date = new Date();
       let person = prompt("Please enter your name", "Harry Potter");
       for (let b = 5; b > a; b--) {
-        document.getElementById(
-          `score${b}`
-        ).innerHTML = document.getElementById(`score${b - 1}`).innerHTML;
-        document.getElementById(`date${b}`).innerHTML = document.getElementById(
-          `date${b - 1}`
-        ).innerHTML;
+        document.getElementById(`score${b}`).innerHTML = document.getElementById(`score${b - 1}`).innerHTML;
+        document.getElementById(`date${b}`).innerHTML = document.getElementById(`date${b - 1}`).innerHTML;
+        document.getElementById(`name${b}`).innerHTML = document.getElementById(`name${b - 1}`).innerHTML;
       }
       document.getElementById(`score${a}`).innerHTML = score;
-      document.getElementById(`date${a}`).innerHTML = `${date.getMonth() +
-        1}/${date.getDate()}/${date.getFullYear()}`;
+      document.getElementById(`date${a}`).innerHTML = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+      document.getElementById(`name${a}`).innerHTML = person;
       storeHighscoresToDatabase();
       return;
     }
