@@ -58,7 +58,7 @@ class Sprite {
 }
 
 function changeColor() {
-  myColor = document.getElementById("myColor);
+  myColor = document.getElementById("myColor");
 }                                   
 
 function getPosition() {
