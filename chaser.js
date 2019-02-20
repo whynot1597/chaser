@@ -154,10 +154,10 @@ function endGame() {
   ctx.fillText("You are dead...", canvas.width / 2, canvas.height / 2);
   loadHighscores();
   testForHighScore();
-  testForPersonalBest();
+  //testForPersonalBest();
 }
 
-function testForPersonalBest() {
+/*function testForPersonalBest() {
   let score = enemies.length;
   if (score > document.getElementById(`scoreMine`).innerHTML) {
     firebase.database().ref('users/' + firebase.auth().currentUser.userId).set({
@@ -166,7 +166,7 @@ function testForPersonalBest() {
     });
     document.getElementById(`scoreMine`).innerHTML = score;
   }
-}
+}*/
 
 function testForHighScore() {
   let score = enemies.length;
@@ -218,10 +218,10 @@ function loadHighscores() {
     for (let i = 1; i <=5; i++) {
       putScoresIn(colRef, i);
     }
-  let user = firebase.auth().currentUser;
+  /*let user = firebase.auth().currentUser;
   document.getElementById(`scoreMine`).innerHTML = firebase.auth().currentUser.score;
   document.getElementById(`dateMine`).innerHTML = firebase.auth().currentUser.date;
-  document.getElementById(`nameMine`).innerHTML = firebase.auth().currentUser.displayName;
+  document.getElementById(`nameMine`).innerHTML = firebase.auth().currentUser.displayName;*/
 }
 
 function putScoresIn(colRef, n) {
