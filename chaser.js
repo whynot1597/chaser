@@ -185,7 +185,7 @@ function storeHighscoresToCookies() {
 function loadHighscores() {
   let colRef = firebase.firestore().collection('Highscores');
     for (let i = 1; i <=5; i++) {
-      putScoresIn(colRef, n);
+      putScoresIn(colRef, i);
     }
 }
 
