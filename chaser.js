@@ -189,7 +189,7 @@ function storeHighscoresToCookies() {
   }
 }*/
 function loadHighscores() {
-  document.getElementById(`score1`).innerHTML = firebase.firestore().collection('Highscores').First.Score;
+  document.getElementById(`score1`).innerHTML = firebase.firestore().collection('Highscores');
 }
 
 function getCookie(cookieName) {
