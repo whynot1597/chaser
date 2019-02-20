@@ -161,7 +161,7 @@ function testForPersonalBest() {
   let score = enemies.length;
   let user = firebase.auth().currentUser;
   if (score > document.getElementById(`scoreMine`).innerHTML) {
-    firebase.database().ref('users/' + userId).set({
+    firebase.database().ref('users/' + user.userId).set({
       score: score,
       date : new Date()
     });
