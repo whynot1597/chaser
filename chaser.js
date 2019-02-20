@@ -170,11 +170,14 @@ function storeHighscoresToCookies() {
   }
 }
 
-function loadHighscores() {
+/*function loadHighscores() {
   for (let a = 1; a <= 5; a++) {
     document.getElementById(`score${a}`).innerHTML = getCookie(`score${a}`);
     document.getElementById(`date${a}`).innerHTML = getCookie(`date${a}`);
   }
+}*/
+function loadHighScores() {
+  document.getElementById(`score1`).innerHTML = database.ref().Highscores.First.Score;
 }
 
 function getCookie(cookieName) {
