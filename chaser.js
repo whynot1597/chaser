@@ -9,19 +9,6 @@ var config = {
       };
 var defaultApp = firebase.initializeApp(config);
 
-let user = firebase.auth().currentUser;
-var name, email, photoUrl, uid, emailVerified;
-if (user != null) {
-  name = user.displayName;
-  email = user.email;
-  photoUrl = user.photoURL;
-  emailVerified = user.emailVerified;
-  uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
-                   // this value to authenticate with your backend server, if
-                   // you have one. Use User.getToken() instead.
-}
-
-
 console.log(defaultApp.name);  // "[DEFAULT]"
 
 const canvas = document.querySelector("canvas");
@@ -174,7 +161,7 @@ function testForHighScore() {
   for (let a = 1; a <= 5; a++) {
     if (score > document.getElementById(`score${a}`).innerHTML) {
       let date = new Date();
-      let person = name;
+      let person = firebase.auth().currentUser.displayName;
       for (let b = 5; b > a; b--) {
         document.getElementById(`score${b}`).innerHTML = document.getElementById(`score${b - 1}`).innerHTML;
         document.getElementById(`date${b}`).innerHTML = document.getElementById(`date${b - 1}`).innerHTML;
