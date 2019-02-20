@@ -57,6 +57,10 @@ class Sprite {
   }
 }
 
+function changeColor() {
+  myColor = document.getElementById("myColor);
+}                                   
+
 function getPosition() {
   let firstDimension = Math.floor(Math.random() * canvas.height);
   let secondDimension = 0;
