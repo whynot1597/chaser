@@ -19,6 +19,7 @@ healthPercentage.innerHTML = progressBar.value;
 const numberOfEnemies = document.getElementById("numberOfEnemies");
 const backgroundSong = document.getElementById("backgroundSong");
 const damageSoundEffect = document.getElementById("damageSoundEffect");
+let myColor = document.getElementById("myColor").value;
 let enemies = [];
 let addHealthInterval = undefined;
 let addEnemiesInterval = undefined;
@@ -81,7 +82,7 @@ class Player extends Sprite {
   }
 }
 
-let player = new Player(250, 150, 25, document.getElementById("myColor").value, 0.5);
+let player = new Player(250, 150, 25, myColor, 0.5);
 
 class Enemy extends Sprite {
   constructor() {
@@ -128,7 +129,7 @@ function updateScene() {
       healthPercentage.innerHTML = progressBar.value;
       player.color = "white";
       damageSoundEffect.play();
-      setTimeout(() => (player.color = "red"), 100);
+      setTimeout(() => (player.color = myColor), 100);
       isInvincible = true;
       setTimeout(() => (isInvincible = false), 1000);
     }
