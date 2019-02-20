@@ -165,20 +165,33 @@ function testForHighScore() {
       document.getElementById(`score${a}`).innerHTML = score;
       document.getElementById(`date${a}`).innerHTML = `${date.getMonth() +
         1}/${date.getDate()}/${date.getFullYear()}`;
-      storeHighscoresToCookies();
+      storeHighscoresToDatabase();
       return;
     }
   }
 }
 
-function storeHighscoresToCookies() {
-  let cookieScore = undefined;
-  let cookieDate = undefined;
+function storeHighscoresTodatabase() {
+  let colRef = firebase.firestore().collection('Highscores');
+  let databaseScore = undefined;
+  let databaseDate = undefined;
+  let databaseName = undefined;
   for (let a = 1; a <= 5; a++) {
-    cookieScore = document.getElementById(`score${a}`).innerHTML;
-    cookieDate = document.getElementById(`date${a}`).innerHTML;
-    document.cookie = `score${a}=${cookieScore}`;
-    document.cookie = `date${a}=${cookieDate}`;
+    databaseScore = document.getElementById(`score${a}`).innerHTML;
+    databaseDate = document.getElementById(`date${a}`).innerHTML;
+    databaseName = document.getElementById(`name${a}`).innerHTML;
+    switch (a) {
+      case 1:
+        colRef.doc("First").set({Score: databaseScore, Date: databaseDate, Name: databaseName});
+      case 2:
+        colRef.doc("Second").set({Score: databaseScore, Date: databaseDate, Name: databaseName});
+      case 3:
+        colRef.doc("Third").set({Score: databaseScore, Date: databaseDate, Name: databaseName}); 
+      case 4: 
+        colRef.doc("Fourth").set({Score: databaseScore, Date: databaseDate, Name: databaseName});
+      case 5:
+        colRef.doc("Fifth").set({Score: databaseScore, Date: databaseDate, Name: databaseName});
+    }
   }
 }
 
@@ -214,22 +227,6 @@ function putScoresIn(colRef, n) {
   }).catch(function(error) {
     console.log("Error getting document:", error);
   });
-}
-
-function getCookie(cookieName) {
-  let name = cookieName + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(";");
-  for (let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == " ") {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
 }
 
 function restartGame() {
