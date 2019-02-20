@@ -235,6 +235,7 @@ function putScoresIn(colRef, n) {
 
 function restartGame() {
   if (!playerIsAlive) {
+    changeColor();
     playerIsAlive = true;
     enemies = [];
     numberOfEnemies.innerHTML = enemies.length;
