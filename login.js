@@ -14,6 +14,10 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 var uiConfig = {
   callbacks: {
     signInSuccessWithAuthResult: function(authResult, successUrl) {
+      var sessionTimeout = 1; //hours
+      var loginDuration = new Date();
+      loginDuration.setTime(loginDuration.getTime()+(sessionTimeout*60*60*1000));
+      document.cookie = "CrewCentreSession=Valid; "+loginDuration.toGMTString()+"; path=/";
       return true;
     },
     uiShown: function() {
