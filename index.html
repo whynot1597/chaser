@@ -56,6 +56,21 @@
       <br>
       <button id="restartButton" type="button" onclick="restartGame()">Retry</button>
     </div>
+    
+    <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAgyYQphyv1elMoTTuq-a2SjBn5TNFFdn8",
+        authDomain: "chaser-game-lmu.firebaseapp.com",
+        databaseURL: "https://chaser-game-lmu.firebaseio.com",
+        projectId: "chaser-game-lmu",
+        storageBucket: "chaser-game-lmu.appspot.com",
+        messagingSenderId: "54697517741"
+      };
+      firebase.initializeApp(config);
+    </script>
+    
     <script src="chaser.js"></script>
   </body>
 </html>
