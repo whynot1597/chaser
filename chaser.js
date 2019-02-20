@@ -81,7 +81,7 @@ class Player extends Sprite {
   }
 }
 
-let player = new Player(250, 150, 25, "red", 0.5);
+let player = new Player(250, 150, 25, document.getElementById("myColor").value, 0.5);
 
 class Enemy extends Sprite {
   constructor() {
