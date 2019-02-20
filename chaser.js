@@ -182,14 +182,19 @@ function storeHighscoresToCookies() {
   }
 }
 
-/*function loadHighscores() {
-  for (let a = 1; a <= 5; a++) {
-    document.getElementById(`score${a}`).innerHTML = getCookie(`score${a}`);
-    document.getElementById(`date${a}`).innerHTML = getCookie(`date${a}`);
-  }
-}*/
 function loadHighscores() {
-  document.getElementById(`score1`).innerHTML = firebase.firestore().collection('Highscores').doc("First").Score;
+  let docRef = firebase.firestore().collection('Highscores').doc("First");
+  docRef.get().then(function(doc) {
+    if (doc.exists) {
+        document.getElementById(`score1`).innerHTML = doc.data().Score;
+        document.getElementById(`date1`).innerHTML = doc.data().Date;
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+  }).catch(function(error) {
+    console.log("Error getting document:", error);
+  });
 }
 
 function getCookie(cookieName) {
