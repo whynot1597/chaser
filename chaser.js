@@ -206,6 +206,7 @@ function putScoresIn(colRef, n) {
     if (doc.exists) {
         document.getElementById(`score${n}`).innerHTML = doc.data().Score;
         document.getElementById(`date${n}`).innerHTML = doc.data().Date;
+        document.getElementById(`name${n}`).innerHTML = doc.data().Name;
     } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
