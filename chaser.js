@@ -266,7 +266,7 @@ function writeUserData(userId, name, score, date) {
 }
 
 if (document.cookie.indexOf("CrewCentreSession=Valid") == -1) {
-  location.href = "/login.html";
+  location.href = "chaser/login.html";
 }
 loadHighscores();
 backgroundSong.play();
