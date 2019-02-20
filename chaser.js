@@ -154,12 +154,25 @@ function endGame() {
   ctx.fillText("You are dead...", canvas.width / 2, canvas.height / 2);
   loadHighscores();
   testForHighScore();
+  testForPersonalBest();
 }
+
+function testForPersonalBest() {
+  let score = enemies.length;
+  let user = firebase.auth().currentUser;
+  if (score > document.getElementById(`scoreMine`).innerHTML) {
+    firebase.database().ref('users/' + userId).set({
+      score: score,
+      date : new Date()
+    });
+    document.getElementById(`scoreMine`).innerHTML = score;
+  }
 
 function testForHighScore() {
   let score = enemies.length;
   for (let a = 1; a <= 5; a++) {
     if (score > document.getElementById(`score${a}`).innerHTML) {
+      alert("You are the number${a} highscore!");
       let date = new Date();
       let person = firebase.auth().currentUser.displayName;
       for (let b = 5; b > a; b--) {
@@ -205,6 +218,10 @@ function loadHighscores() {
     for (let i = 1; i <=5; i++) {
       putScoresIn(colRef, i);
     }
+  let user = firebase.auth().currentUser;
+  document.getElementById(`scoreMine`).innerHTML = user.score;
+  document.getElementById(`dateMine`).innerHTML = user.date;
+  document.getElementById(`nameMine`).innerHTML = user.displayName;
 }
 
 function putScoresIn(colRef, n) {
