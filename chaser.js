@@ -1,5 +1,13 @@
 // Initialize the default app
-var defaultApp = firebase.initializeApp();
+var config = {
+        apiKey: "AIzaSyAgyYQphyv1elMoTTuq-a2SjBn5TNFFdn8",
+        authDomain: "chaser-game-lmu.firebaseapp.com",
+        databaseURL: "https://chaser-game-lmu.firebaseio.com",
+        projectId: "chaser-game-lmu",
+        storageBucket: "chaser-game-lmu.appspot.com",
+        messagingSenderId: "54697517741"
+      };
+var defaultApp = firebase.initializeApp(config);
 
 console.log(defaultApp.name);  // "[DEFAULT]"
 
