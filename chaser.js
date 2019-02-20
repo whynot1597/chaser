@@ -172,7 +172,7 @@ function testForHighScore() {
   let score = enemies.length;
   for (let a = 1; a <= 5; a++) {
     if (score > document.getElementById(`score${a}`).innerHTML) {
-      alert("You are the number${a} highscore!");
+      alert(`You got the number ${a} highscore!`);
       let date = new Date();
       let person = firebase.auth().currentUser.displayName;
       for (let b = 5; b > a; b--) {
