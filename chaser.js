@@ -1,3 +1,4 @@
+let database = firebase.database();
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 const progressBar = document.getElementById("progressBar");
@@ -220,6 +221,14 @@ function drawScene() {
   } else {
     requestAnimationFrame(drawScene);
   }
+}
+
+function writeUserData(userId, name, score, date) {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    score: score,
+    date : date
+  });
 }
 
 loadHighscores();
