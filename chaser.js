@@ -266,16 +266,30 @@ function drawScene() {
 }
 
 function writeUserData(userId, name, score, date) {
-  firebase.database().ref('users/' + userId).set({
-    username: name,
-    score: score,
-    date : date
-  });
+  if (firebase.database().ref('users/' + userId).data().score < score) {
+    firebase.database().ref('users/' + userId).set({
+      username: name,
+      score: score,
+      date : date
+    });
+  }
 }
 
 if (document.cookie.indexOf("CrewCentreSession=Valid") == -1) {
   location.href = "/chaser/login.html";
 }
+let user = firebase.auth().currentUser;
+var name, email, photoUrl, uid, emailVerified;
+if (user != null) {
+  name = user.displayName;
+  email = user.email;
+  photoUrl = user.photoURL;
+  emailVerified = user.emailVerified;
+  uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
+                   // this value to authenticate with your backend server, if
+                   // you have one. Use User.getToken() instead.
+}
+
 loadHighscores();
 backgroundSong.play();
 startIntervals();
