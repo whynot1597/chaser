@@ -192,15 +192,15 @@ function loadHighscores() {
 function putScoresIn(colRef, n) {
   let docRef = null;
   if (n == 1) {
-    docRef = colRef.data("First");
+    docRef = colRef.doc("First");
   } else if (n == 2) {
-    docRef = colRef.data("Second");
+    docRef = colRef.doc("Second");
   } else if (n == 3) {
-    docRef = colRef.data("Third");
+    docRef = colRef.doc("Third");
   } else if (n == 4) {        
-    docRef = colRef.data("Fourth");
+    docRef = colRef.doc("Fourth");
   } else {
-    docRef = colRef.data("Fifth");
+    docRef = colRef.doc("Fifth");
   }
   docRef.get().then(function(doc) {
     if (doc.exists) {
