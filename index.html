@@ -1,6 +1,21 @@
 <!doctype html>
 <html>
   <head>
+    <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAgyYQphyv1elMoTTuq-a2SjBn5TNFFdn8",
+        authDomain: "chaser-game-lmu.firebaseapp.com",
+        databaseURL: "https://chaser-game-lmu.firebaseio.com",
+        projectId: "chaser-game-lmu",
+        storageBucket: "chaser-game-lmu.appspot.com",
+        messagingSenderId: "54697517741"
+      };
+      firebase.initializeApp(config);
+    </script>
+    
+    
     <meta charset="utf-8">
     <title>Chaser Game</title>
     <link rel="stylesheet" href="chaser.css">
@@ -57,19 +72,6 @@
       <button id="restartButton" type="button" onclick="restartGame()">Retry</button>
     </div>
     
-    <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyAgyYQphyv1elMoTTuq-a2SjBn5TNFFdn8",
-        authDomain: "chaser-game-lmu.firebaseapp.com",
-        databaseURL: "https://chaser-game-lmu.firebaseio.com",
-        projectId: "chaser-game-lmu",
-        storageBucket: "chaser-game-lmu.appspot.com",
-        messagingSenderId: "54697517741"
-      };
-      firebase.initializeApp(config);
-    </script>
     <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase-app.js"></script>
     <!-- Add additional services that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase-auth.js"></script>
