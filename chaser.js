@@ -154,6 +154,7 @@ function testForHighScore() {
   for (let a = 1; a <= 5; a++) {
     if (score > document.getElementById(`score${a}`).innerHTML) {
       let date = new Date();
+      let person = prompt("Please enter your name", "Harry Potter");
       for (let b = 5; b > a; b--) {
         document.getElementById(
           `score${b}`
