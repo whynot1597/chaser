@@ -27,7 +27,7 @@ var uiConfig = {
     }
   },
   // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-  signInFlow: 'popup',
+  //signInFlow: 'popup',
   signInSuccessUrl: 'https://whynot1597.github.io/chaser/',
   signInOptions: [
     firebase.auth.EmailAuthProvider.PROVIDER_ID
