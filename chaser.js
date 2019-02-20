@@ -270,9 +270,10 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 var uiConfig = {
   callbacks: {
     signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-      // User successfully signed in.
-      // Return type determines whether we continue the redirect automatically
-      // or whether we leave that to developer to handle.
+      loadHighscores();
+      backgroundSong.play();
+      startIntervals();
+      requestAnimationFrame(drawScene);
       return true;
     },
     uiShown: function() {
@@ -283,7 +284,7 @@ var uiConfig = {
   },
   // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
   signInFlow: 'popup',
-  signInSuccessUrl: '<url-to-redirect-to-on-success>',
+  //signInSuccessUrl: '<url-to-redirect-to-on-success>',
   signInOptions: [
     firebase.auth.EmailAuthProvider.PROVIDER_ID
   ],
@@ -293,8 +294,3 @@ var uiConfig = {
   privacyPolicyUrl: '<your-privacy-policy-url>'
 };
 ui.start('#firebaseui-auth-container', uiConfig);
-
-loadHighscores();
-backgroundSong.play();
-startIntervals();
-requestAnimationFrame(drawScene);
