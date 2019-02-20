@@ -1,5 +1,5 @@
 // Initialize the default app
-var defaultApp = firebase.initializeApp(defaultAppConfig);
+var defaultApp = firebase.initializeApp();
 
 console.log(defaultApp.name);  // "[DEFAULT]"
 
