@@ -171,7 +171,7 @@ function testForHighScore() {
   }
 }
 
-function storeHighscoresTodatabase() {
+function storeHighscoresToDatabase() {
   let colRef = firebase.firestore().collection('Highscores');
   let databaseScore = undefined;
   let databaseDate = undefined;
