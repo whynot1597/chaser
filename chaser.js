@@ -176,7 +176,7 @@ function storeHighscoresToCookies() {
     document.getElementById(`date${a}`).innerHTML = getCookie(`date${a}`);
   }
 }*/
-function loadHighScores() {
+function loadHighscores() {
   document.getElementById(`score1`).innerHTML = database.ref().Highscores.First.Score;
 }
 
