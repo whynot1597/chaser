@@ -290,7 +290,12 @@ function writeUserData(displayName) {
     document.getElementById(`dateMine`).innerHTML = doc.data().date;
     document.getElementById(`nameMine`).innerHTML = doc.data().displayName;
   } else {
-     // doc.data() will be undefined in this case
+     colRefUsers.doc(displayName).set({
+      name: prompt("Full name", "John Smith"),
+      score: 0,
+      displayName: displayName,
+      date : new Date()
+    });
      console.log("No such document!");
   }
 }).catch(function(error) {
@@ -303,14 +308,6 @@ if (document.cookie.indexOf("CrewCentreSession=Valid") == -1) {
 }
 let user = firebase.auth().currentUser;
 var displayName = prompt("Display name", "John_1990");
-if (!(colRefUsers.doc(displayName).exists())) {
-  colRefUsers.doc(displayName).set({
-      name: prompt("Full name", "John Smith"),
-      score: 0,
-      displayName: displayName,
-      date : new Date()
-    });
-}
 writeUserData(displayName);
 loadHighscores();
 backgroundSong.play();
