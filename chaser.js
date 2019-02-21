@@ -296,8 +296,6 @@ function writeUserData(displayName) {
 }).catch(function(error) {
   console.log("Error getting document:", error);
 });
-  document.getElementById(`dateMine`).innerHTML = firebase.auth().currentUser.date;
-  document.getElementById(`nameMine`).innerHTML = firebase.auth().currentUser.displayName;
 }
 
 if (document.cookie.indexOf("CrewCentreSession=Valid") == -1) {
