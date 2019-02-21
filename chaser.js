@@ -294,9 +294,6 @@ function writeUserData(displayName) {
       date : `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
     });
     console.log("No such document!");
-    document.getElementById(`scoreMine`).innerHTML = doc.data().score;
-    document.getElementById(`dateMine`).innerHTML = doc.data().date;
-    document.getElementById(`nameMine`).innerHTML = doc.data().displayName;
   } 
   document.getElementById(`scoreMine`).innerHTML = doc.data().score;
   document.getElementById(`dateMine`).innerHTML = doc.data().date;
