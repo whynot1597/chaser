@@ -310,9 +310,8 @@ if (colRefUsers.doc(displayName) == null) {
       displayName: displayName,
       date : new Date()
     });
-} else {
-  writeUserData(displayName);
 }
+writeUserData(displayName);
 loadHighscores();
 backgroundSong.play();
 startIntervals();
