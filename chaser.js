@@ -303,7 +303,7 @@ if (document.cookie.indexOf("CrewCentreSession=Valid") == -1) {
 }
 let user = firebase.auth().currentUser;
 var displayName = prompt("Display name", "John_1990");
-if (colRefUsers.doc(displayName) == null) {
+if (!(colRefUsers.doc(displayName).exists())) {
   colRefUsers.doc(displayName).set({
       name: prompt("Full name", "John Smith"),
       score: 0,
