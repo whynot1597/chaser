@@ -290,11 +290,12 @@ function writeUserData(displayName) {
     document.getElementById(`dateMine`).innerHTML = doc.data().date;
     document.getElementById(`nameMine`).innerHTML = doc.data().displayName;
   } else {
+     let date = new Date();
      colRefUsers.doc(displayName).set({
       name: prompt("Full name", "John Smith"),
       score: 0,
       displayName: displayName,
-      date : new Date()
+      date : `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
     });
      console.log("No such document!");
   }
