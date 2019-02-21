@@ -8,6 +8,7 @@ var config = {
         messagingSenderId: "54697517741"
       };
 var defaultApp = firebase.initializeApp(config);
+let colRefUsers = firebase.firestore().collection('users');
 
 console.log(defaultApp.name);  // "[DEFAULT]"
 
@@ -282,18 +283,37 @@ function drawScene() {
   }
 }
 
-function writeUserData(userId, name, score, date) {
-  if (firebase.database().ref('users/' + userId).data().score < score) {
-    firebase.database().ref('users/' + userId).set({
-      username: name,
-      score: score,
-      date : date
-    });
+function writeUserData(displayName) {
+  colRefUsers.doc(displayName).get().then(function(doc) {
+  if (doc.exists) {
+    document.getElementById(`scoreMine`).innerHTML = doc.data().score;
+    document.getElementById(`dateMine`).innerHTML = doc.data().date;
+    document.getElementById(`nameMine`).innerHTML = doc.data().displayName;
+  } else {
+     // doc.data() will be undefined in this case
+     console.log("No such document!");
   }
+}).catch(function(error) {
+  console.log("Error getting document:", error);
+});
+  document.getElementById(`dateMine`).innerHTML = firebase.auth().currentUser.date;
+  document.getElementById(`nameMine`).innerHTML = firebase.auth().currentUser.displayName;
 }
 
 if (document.cookie.indexOf("CrewCentreSession=Valid") == -1) {
   location.href = "/chaser/login.html";
+}
+let user = firebase.auth().currentUser;
+var displayName = prompt("Display name", "John_1990");
+if (colRefUsers.doc(displayName) == null) {
+  colRefUsers.doc(displayName).set({
+      name: prompt("Full name", "John Smith"),
+      score: 0,
+      displayName: displayName,
+      date : new Date();
+    });
+} else {
+  writeUserData(displayName);
 }
 loadHighscores();
 backgroundSong.play();
