@@ -158,16 +158,18 @@ function endGame() {
   //testForPersonalBest();
 }
 
-/*function testForPersonalBest() {
+function testForPersonalBest() {
   let score = enemies.length;
   if (score > document.getElementById(`scoreMine`).innerHTML) {
-    firebase.database().ref('users/' + firebase.auth().currentUser.userId).set({
-      score: score,
-      date : new Date()
+    let date = new Date();
+    let dateString = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+    colRefUsers.doc(displayName).get().then(function(doc) {
+      colRefUsers.doc(displayName).set({score: score, date: dateString});
     });
     document.getElementById(`scoreMine`).innerHTML = score;
+    document.getElementById(`dateMine`).innerHTML = dateString;
   }
-}*/
+}
 
 function testForHighScore() {
   let score = enemies.length;
@@ -219,10 +221,6 @@ function loadHighscores() {
     for (let i = 1; i <=5; i++) {
       putScoresIn(colRef, i);
     }
-  /*let user = firebase.auth().currentUser;
-  document.getElementById(`scoreMine`).innerHTML = firebase.auth().currentUser.score;
-  document.getElementById(`dateMine`).innerHTML = firebase.auth().currentUser.date;
-  document.getElementById(`nameMine`).innerHTML = firebase.auth().currentUser.displayName;*/
 }
 
 function putScoresIn(colRef, n) {
