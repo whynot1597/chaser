@@ -310,7 +310,7 @@ if (colRefUsers.doc(displayName) == null) {
       name: prompt("Full name", "John Smith"),
       score: 0,
       displayName: displayName,
-      date : new Date();
+      date : new Date()
     });
 } else {
   writeUserData(displayName);
