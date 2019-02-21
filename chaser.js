@@ -302,7 +302,9 @@ function writeUserData(displayName) {
     document.getElementById(`scoreMine`).innerHTML = doc.data().score;
     document.getElementById(`dateMine`).innerHTML = doc.data().date;
     document.getElementById(`nameMine`).innerHTML = doc.data().displayName;
-  }
+  }).catch(function(error) {
+    console.log("Error getting document:", error);
+  });
 }
 
 if (document.cookie.indexOf("CrewCentreSession=Valid") == -1) {
