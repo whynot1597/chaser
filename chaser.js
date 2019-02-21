@@ -285,22 +285,24 @@ function drawScene() {
 
 function writeUserData(displayName) {
   colRefUsers.doc(displayName).get().then(function(doc) {
-  if (!doc.exists) {
-    let date = new Date();
-     colRefUsers.doc(displayName).set({
-      name: prompt("Full name", "John Smith"),
-      score: 0,
-      displayName: displayName,
-      date : `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
-    });
-    console.log("No such document!");
-  } 
-  document.getElementById(`scoreMine`).innerHTML = doc.data().score;
-  document.getElementById(`dateMine`).innerHTML = doc.data().date;
-  document.getElementById(`nameMine`).innerHTML = doc.data().displayName;
-}).catch(function(error) {
-  console.log("Error getting document:", error);
-});
+    if (!doc.exists) {
+      let date = new Date();
+        colRefUsers.doc(displayName).set({
+        name: prompt("Full name", "John Smith"),
+        score: 0,
+        displayName: displayName,
+        date : `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
+      });
+      console.log("No such document!");
+    } 
+  }).catch(function(error) {
+    console.log("Error getting document:", error);
+  });
+  colRefUsers.doc(displayName).get().then(function(doc) {
+    document.getElementById(`scoreMine`).innerHTML = doc.data().score;
+    document.getElementById(`dateMine`).innerHTML = doc.data().date;
+    document.getElementById(`nameMine`).innerHTML = doc.data().displayName;
+  }
 }
 
 if (document.cookie.indexOf("CrewCentreSession=Valid") == -1) {
