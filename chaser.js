@@ -294,14 +294,14 @@ function writeUserData(displayName) {
         date : `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
       });
       console.log("No such document!");
-    } 
-  }).catch(function(error) {
-    console.log("Error getting document:", error);
-  });
-  colRefUsers.doc(displayName).get().then(function(doc) {
-    document.getElementById(`scoreMine`).innerHTML = doc.data().score;
-    document.getElementById(`dateMine`).innerHTML = doc.data().date;
-    document.getElementById(`nameMine`).innerHTML = doc.data().displayName;
+      document.getElementById(`scoreMine`).innerHTML = 0;
+      document.getElementById(`dateMine`).innerHTML = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+      document.getElementById(`nameMine`).innerHTML = displayName;
+    } else {
+      document.getElementById(`scoreMine`).innerHTML = doc.data().score;
+      document.getElementById(`dateMine`).innerHTML = doc.data().date;
+      document.getElementById(`nameMine`).innerHTML = doc.data().displayName;
+    }
   }).catch(function(error) {
     console.log("Error getting document:", error);
   });
