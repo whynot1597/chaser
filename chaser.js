@@ -155,7 +155,7 @@ function endGame() {
   ctx.fillText("You are dead...", canvas.width / 2, canvas.height / 2);
   loadHighscores();
   testForHighScore();
-  //testForPersonalBest();
+  testForPersonalBest();
 }
 
 function testForPersonalBest() {
